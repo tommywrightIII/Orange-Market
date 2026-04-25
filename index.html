@@ -24,7 +24,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { height: 100%; background: var(--bg); color: var(--text); font-family: 'Manrope', sans-serif; overflow-x: hidden; }
 
-  /* ── NAV ── */
+  /* в”Ђв”Ђ NAV в”Ђв”Ђ */
   .nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     background: var(--bg);
@@ -45,11 +45,11 @@
     padding: 1px 6px; font-size: 9px; font-weight: 700; display: none;
   }
 
-  /* ── PAGES ── */
+  /* в”Ђв”Ђ PAGES в”Ђв”Ђ */
   .page { display: none; padding: 60px 0 20px; min-height: 100vh; }
   .page.active { display: block; }
 
-  /* ── HEADER BAND ── */
+  /* в”Ђв”Ђ HEADER BAND в”Ђв”Ђ */
   .shop-header {
     padding: 20px 16px 12px;
     border-bottom: 1px solid var(--border);
@@ -59,7 +59,7 @@
   .shop-title span { color: var(--accent); }
   .shop-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
 
-  /* ── FILTER BAR ── */
+  /* в”Ђв”Ђ FILTER BAR в”Ђв”Ђ */
   .filter-bar {
     padding: 10px 16px; display: flex; gap: 8px; overflow-x: auto;
     scrollbar-width: none;
@@ -74,13 +74,13 @@
   }
   .chip.active { background: var(--accent); color: #000; border-color: var(--accent); }
 
-  /* ── CATALOG GRID ── */
+  /* в”Ђв”Ђ CATALOG GRID в”Ђв”Ђ */
   .grid {
     display: grid; grid-template-columns: repeat(2, 1fr);
     gap: 12px; padding: 12px 12px;
   }
 
-  /* ── PRODUCT CARD ── */
+  /* в”Ђв”Ђ PRODUCT CARD в”Ђв”Ђ */
   .card {
     background: var(--card); border: 1px solid var(--border);
     border-radius: 16px; overflow: hidden;
@@ -129,7 +129,7 @@
   .card-btn:disabled { background: var(--border); color: var(--muted); cursor: default; }
   .card-btn:not(:disabled):active { opacity: .8; }
 
-  /* ── MODAL ── */
+  /* в”Ђв”Ђ MODAL в”Ђв”Ђ */
   .modal-overlay {
     display: none; position: fixed; inset: 0; z-index: 200;
     background: rgba(0,0,0,.7); backdrop-filter: blur(4px);
@@ -178,7 +178,7 @@
   }
   .modal-btn:disabled { background: var(--border); color: var(--muted); cursor: default; }
 
-  /* ── LOGS PAGE ── */
+  /* в”Ђв”Ђ LOGS PAGE в”Ђв”Ђ */
   .logs-header { padding: 20px 16px 10px; }
   .logs-title { font-family: 'Unbounded', sans-serif; font-size: 18px; font-weight: 700; }
   .log-item {
@@ -194,7 +194,7 @@
   .log-tag.removed { background: #ff444422; color: var(--danger); }
   .log-price { font-family: 'Unbounded', sans-serif; font-size: 15px; font-weight: 700; margin-top: 4px; }
 
-  /* ── ADMIN PAGE ── */
+  /* в”Ђв”Ђ ADMIN PAGE в”Ђв”Ђ */
   .admin-header { padding: 16px 16px 8px; border-bottom: 1px solid var(--border); margin-bottom: 8px; }
   .admin-title { font-family: 'Unbounded', sans-serif; font-size: 16px; font-weight: 700; }
   .admin-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
@@ -218,7 +218,7 @@
   .btn-del { background: #ff444422; color: var(--danger); }
   .btn-toggle { background: #FF6B0022; color: var(--accent); font-size: 9px; }
 
-  /* ── ADD FORM ── */
+  /* в”Ђв”Ђ ADD FORM в”Ђв”Ђ */
   .add-form { padding: 12px; }
   .add-form-title { font-family: 'Unbounded', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 14px; }
   .field { margin-bottom: 12px; }
@@ -250,117 +250,117 @@
 
 <!-- NAV -->
 <div class="nav">
-  <button class="nav-tab active" id="tab-catalog" onclick="showPage('catalog')">🛍 КАТАЛОГ</button>
-  <button class="nav-tab" id="tab-logs" onclick="showPage('logs')" style="display:none">📋 ЛОГИ</button>
-  <button class="nav-tab" id="tab-admin" onclick="showPage('admin')" style="display:none">⚙️ ADMIN</button>
+  <button class="nav-tab active" id="tab-catalog" onclick="showPage('catalog')">рџ›Ќ РљРђРўРђР›РћР“</button>
+  <button class="nav-tab" id="tab-logs" onclick="showPage('logs')" style="display:none">рџ“‹ Р›РћР“Р</button>
+  <button class="nav-tab" id="tab-admin" onclick="showPage('admin')" style="display:none">вљ™пёЏ ADMIN</button>
 </div>
 
-<!-- ══════════════ CATALOG PAGE ══════════════ -->
+<!-- в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ CATALOG PAGE в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ -->
 <div class="page active" id="page-catalog">
   <div class="shop-header">
     <div class="shop-title">Orange Market</div>
-    <div class="shop-sub">Быстрая доставка · Честные цены · Моментальная связь</div>
+    <div class="shop-sub">Р‘С‹СЃС‚СЂР°СЏ РґРѕСЃС‚Р°РІРєР° В· Р§РµСЃС‚РЅС‹Рµ С†РµРЅС‹ В· РњРѕРјРµРЅС‚Р°Р»СЊРЅР°СЏ СЃРІСЏР·СЊ</div>
   </div>
   <div class="filter-bar" id="filter-bar">
-    <button class="chip active" onclick="filterCat('all')">Все</button>
-    <button class="chip" onclick="filterCat('shoes')">Кроссовки</button>
-    <button class="chip" onclick="filterCat('clothes')">Одежда</button>
-    <button class="chip" onclick="filterCat('accessories')">Аксессуары</button>
-    <button class="chip" onclick="filterCat('bags')">Сумки</button>
-    <button class="chip" onclick="filterCat('other')">Другое</button>
+    <button class="chip active" onclick="filterCat('all')">Р’СЃРµ</button>
+    <button class="chip" onclick="filterCat('shoes')">РљСЂРѕСЃСЃРѕРІРєРё</button>
+    <button class="chip" onclick="filterCat('clothes')">РћРґРµР¶РґР°</button>
+    <button class="chip" onclick="filterCat('accessories')">РђРєСЃРµСЃСЃСѓР°СЂС‹</button>
+    <button class="chip" onclick="filterCat('bags')">РЎСѓРјРєРё</button>
+    <button class="chip" onclick="filterCat('other')">Р”СЂСѓРіРѕРµ</button>
   </div>
   <div class="grid" id="catalog-grid"></div>
 </div>
 
-<!-- ══════════════ LOGS PAGE ══════════════ -->
+<!-- в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ LOGS PAGE в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ -->
 <div class="page" id="page-logs">
   <div class="logs-header">
     <div style="display:flex;justify-content:space-between;align-items:center;">
-      <div class="logs-title">Лог действий</div>
-      <button onclick="clearLogs()" style="padding:6px 12px;background:transparent;border:1px solid var(--danger);border-radius:8px;color:var(--danger);font-family:'Unbounded',sans-serif;font-size:10px;font-weight:700;cursor:pointer;">ОЧИСТИТЬ</button>
+      <div class="logs-title">Р›РѕРі РґРµР№СЃС‚РІРёР№</div>
+      <button onclick="clearLogs()" style="padding:6px 12px;background:transparent;border:1px solid var(--danger);border-radius:8px;color:var(--danger);font-family:'Unbounded',sans-serif;font-size:10px;font-weight:700;cursor:pointer;">РћР§РРЎРўРРўР¬</button>
     </div>
   </div>
   <div id="logs-list"></div>
 </div>
 
-<!-- ══════════════ ADMIN PAGE ══════════════ -->
+<!-- в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ ADMIN PAGE в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ -->
 <div class="page" id="page-admin">
   <div class="admin-header">
-    <div class="admin-title">⚙️ Админ-панель</div>
-    <div class="admin-sub">Управление каталогом</div>
+    <div class="admin-title">вљ™пёЏ РђРґРјРёРЅ-РїР°РЅРµР»СЊ</div>
+    <div class="admin-sub">РЈРїСЂР°РІР»РµРЅРёРµ РєР°С‚Р°Р»РѕРіРѕРј</div>
   </div>
 
   <!-- ADD FORM -->
   <div class="add-form">
-    <div class="add-form-title" id="form-title">+ Добавить товар</div>
+    <div class="add-form-title" id="form-title">+ Р”РѕР±Р°РІРёС‚СЊ С‚РѕРІР°СЂ</div>
     <input type="hidden" id="edit-id">
     <div class="form-row">
       <div class="field">
-        <label>Бренд</label>
+        <label>Р‘СЂРµРЅРґ</label>
         <input type="text" id="f-brand" placeholder="Nike">
       </div>
       <div class="field">
-        <label>Название</label>
+        <label>РќР°Р·РІР°РЅРёРµ</label>
         <input type="text" id="f-name" placeholder="Air Force 1">
       </div>
     </div>
     <div class="form-row">
       <div class="field">
-        <label>Категория</label>
+        <label>РљР°С‚РµРіРѕСЂРёСЏ</label>
         <select id="f-cat">
-          <option value="shoes">Кроссовки</option>
-          <option value="clothes">Одежда</option>
-          <option value="accessories">Аксессуары</option>
-          <option value="bags">Сумки</option>
-          <option value="other">Другое</option>
+          <option value="shoes">РљСЂРѕСЃСЃРѕРІРєРё</option>
+          <option value="clothes">РћРґРµР¶РґР°</option>
+          <option value="accessories">РђРєСЃРµСЃСЃСѓР°СЂС‹</option>
+          <option value="bags">РЎСѓРјРєРё</option>
+          <option value="other">Р”СЂСѓРіРѕРµ</option>
         </select>
       </div>
       <div class="field">
-        <label>Размер</label>
+        <label>Р Р°Р·РјРµСЂ</label>
         <input type="text" id="f-size" placeholder="42 / L / ONE">
       </div>
     </div>
     <div class="form-row">
       <div class="field">
-        <label>Цена (₽)</label>
+        <label>Р¦РµРЅР° (в‚Ѕ)</label>
         <input type="number" id="f-price" placeholder="12500">
       </div>
       <div class="field">
-        <label>Цена ($) необязательно</label>
+        <label>Р¦РµРЅР° ($) РЅРµРѕР±СЏР·Р°С‚РµР»СЊРЅРѕ</label>
         <input type="number" id="f-price-usd" placeholder="135">
       </div>
     </div>
     <div class="form-row">
       <div class="field">
-        <label>Состояние (1-10)</label>
+        <label>РЎРѕСЃС‚РѕСЏРЅРёРµ (1-10)</label>
         <input type="number" id="f-cond" placeholder="9" min="1" max="10">
       </div>
     </div>
     <div class="field">
-      <label>Описание / дефекты</label>
-      <textarea id="f-desc" placeholder="Куплены год назад, носились 3 раза. Небольшая потёртость на носке..."></textarea>
+      <label>РћРїРёСЃР°РЅРёРµ / РґРµС„РµРєС‚С‹</label>
+      <textarea id="f-desc" placeholder="РљСѓРїР»РµРЅС‹ РіРѕРґ РЅР°Р·Р°Рґ, РЅРѕСЃРёР»РёСЃСЊ 3 СЂР°Р·Р°. РќРµР±РѕР»СЊС€Р°СЏ РїРѕС‚С‘СЂС‚РѕСЃС‚СЊ РЅР° РЅРѕСЃРєРµ..."></textarea>
     </div>
     <div class="field">
-      <label>Эмодзи товара (если нет фото)</label>
-      <input type="text" id="f-emoji" placeholder="👟" maxlength="2">
+      <label>Р­РјРѕРґР·Рё С‚РѕРІР°СЂР° (РµСЃР»Рё РЅРµС‚ С„РѕС‚Рѕ)</label>
+      <input type="text" id="f-emoji" placeholder="рџ‘џ" maxlength="2">
     </div>
     <div class="field">
-      <label>Фото (до 5 штук) — ссылки с imgur.com</label>
-      <input type="text" id="f-photo-1" placeholder="Фото 1 https://i.imgur.com/xxx.jpg" style="margin-bottom:6px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text);font-size:12px;font-family:'Manrope',sans-serif;outline:none;">
-      <input type="text" id="f-photo-2" placeholder="Фото 2 (необязательно)" style="margin-bottom:6px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text);font-size:12px;font-family:'Manrope',sans-serif;outline:none;">
-      <input type="text" id="f-photo-3" placeholder="Фото 3 (необязательно)" style="margin-bottom:6px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text);font-size:12px;font-family:'Manrope',sans-serif;outline:none;">
-      <input type="text" id="f-photo-4" placeholder="Фото 4 (необязательно)" style="margin-bottom:6px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text);font-size:12px;font-family:'Manrope',sans-serif;outline:none;">
-      <input type="text" id="f-photo-5" placeholder="Фото 5 (необязательно)" style="width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text);font-size:12px;font-family:'Manrope',sans-serif;outline:none;">
+      <label>Р¤РѕС‚Рѕ (РґРѕ 5 С€С‚СѓРє) вЂ” СЃСЃС‹Р»РєРё СЃ imgur.com</label>
+      <input type="text" id="f-photo-1" placeholder="Р¤РѕС‚Рѕ 1 https://i.imgur.com/xxx.jpg" style="margin-bottom:6px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text);font-size:12px;font-family:'Manrope',sans-serif;outline:none;">
+      <input type="text" id="f-photo-2" placeholder="Р¤РѕС‚Рѕ 2 (РЅРµРѕР±СЏР·Р°С‚РµР»СЊРЅРѕ)" style="margin-bottom:6px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text);font-size:12px;font-family:'Manrope',sans-serif;outline:none;">
+      <input type="text" id="f-photo-3" placeholder="Р¤РѕС‚Рѕ 3 (РЅРµРѕР±СЏР·Р°С‚РµР»СЊРЅРѕ)" style="margin-bottom:6px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text);font-size:12px;font-family:'Manrope',sans-serif;outline:none;">
+      <input type="text" id="f-photo-4" placeholder="Р¤РѕС‚Рѕ 4 (РЅРµРѕР±СЏР·Р°С‚РµР»СЊРЅРѕ)" style="margin-bottom:6px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text);font-size:12px;font-family:'Manrope',sans-serif;outline:none;">
+      <input type="text" id="f-photo-5" placeholder="Р¤РѕС‚Рѕ 5 (РЅРµРѕР±СЏР·Р°С‚РµР»СЊРЅРѕ)" style="width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text);font-size:12px;font-family:'Manrope',sans-serif;outline:none;">
     </div>
-    <button class="btn-add-submit" onclick="submitProduct()">Сохранить товар</button>
-    <button id="cancel-edit-btn" style="display:none; width:100%; padding:11px; margin-top:8px; border-radius:12px; background:transparent; border:1px solid var(--border); color:var(--muted); font-family:'Unbounded',sans-serif; font-size:11px; cursor:pointer;" onclick="cancelEdit()">Отмена</button>
+    <button class="btn-add-submit" onclick="submitProduct()">РЎРѕС…СЂР°РЅРёС‚СЊ С‚РѕРІР°СЂ</button>
+    <button id="cancel-edit-btn" style="display:none; width:100%; padding:11px; margin-top:8px; border-radius:12px; background:transparent; border:1px solid var(--border); color:var(--muted); font-family:'Unbounded',sans-serif; font-size:11px; cursor:pointer;" onclick="cancelEdit()">РћС‚РјРµРЅР°</button>
   </div>
 
-  <div class="section-divider">Товары в каталоге</div>
+  <div class="section-divider">РўРѕРІР°СЂС‹ РІ РєР°С‚Р°Р»РѕРіРµ</div>
   <div class="admin-items" id="admin-items"></div>
 </div>
 
-<!-- ══════════════ PRODUCT MODAL ══════════════ -->
+<!-- в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ PRODUCT MODAL в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ -->
 <div class="photo-fullscreen" id="photo-fullscreen" onclick="closeFullscreen()">
   <img id="photo-fullscreen-img" src="" alt="">
 </div>
@@ -379,18 +379,10 @@
 </div>
 
 <script>
-// ══════ DATA ══════
-const STORAGE_KEY = 'resale_items_v1';
-const LOGS_KEY = 'resale_logs_v1';
-
-const SELLER_USERNAME = 'orangedime';  // <-- поменяй на свой @username без @
-
-const DEFAULT_ITEMS = [
-  { id: 1, brand: 'Nike', name: 'Air Force 1 Low', cat: 'shoes', size: '42', price: 11500, cond: 8, desc: 'Куплены год назад, носились редко. Небольшая потёртость на правом носке. Коробка есть.', emoji: '👟', sold: false },
-  { id: 2, brand: 'Adidas', name: 'Yeezy Boost 350', cat: 'shoes', size: '41', price: 24000, cond: 9, desc: 'В отличном состоянии, одевали раза 4. Подошва чистая, никаких заломов.', emoji: '👟', sold: false },
-  { id: 3, brand: 'Supreme', name: 'Box Logo Tee', cat: 'clothes', size: 'L', price: 15000, cond: 10, desc: 'Ни разу не одевалась. Куплена на дропе, лежала в коробке.', emoji: '👕', sold: false },
-  { id: 4, brand: 'New Era', name: '59Fifty LA', cat: 'accessories', size: 'ONE SIZE', price: 4500, cond: 9, desc: 'Носили сезон. Чистая, форма держится хорошо.', emoji: '🧢', sold: true },
-];
+// в•ђв•ђв•ђв•ђв•ђв•ђ DATA в•ђв•ђв•ђв•ђв•ђв•ђ
+const SELLER_USERNAME = 'orangedime';
+const API_URL = 'https://Р’РђРЁ_RAILWAY_URL'; // <-- Р·Р°РјРµРЅРёРј РїРѕСЃР»Рµ РґРµРїР»РѕСЏ
+const ADMIN_TOKEN = 'orange_admin_secret';
 
 let items = [];
 let logs = [];
@@ -398,13 +390,8 @@ let currentCat = 'all';
 let currentItem = null;
 let isAdmin = false;
 
-// ══════ INIT ══════
-function init() {
-  const stored = localStorage.getItem(STORAGE_KEY);
-  items = stored ? JSON.parse(stored) : [...DEFAULT_ITEMS];
-  const storedLogs = localStorage.getItem(LOGS_KEY);
-  logs = storedLogs ? JSON.parse(storedLogs) : [];
-
+// в•ђв•ђв•ђв•ђв•ђв•ђ INIT в•ђв•ђв•ђв•ђв•ђв•ђ
+async function init() {
   const params = new URLSearchParams(window.location.search);
   isAdmin = params.get('admin') === '1';
   if (isAdmin) {
@@ -415,19 +402,43 @@ function init() {
   Telegram.WebApp.ready();
   Telegram.WebApp.expand();
 
-  renderCatalog();
+  await loadItems();
   renderLogs();
   if (isAdmin) renderAdmin();
 }
 
+async function loadItems() {
+  try {
+    const res = await fetch(`${API_URL}/api/items`);
+    items = await res.json();
+    renderCatalog();
+    if (isAdmin) renderAdmin();
+  } catch(e) {
+    console.error('РћС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё С‚РѕРІР°СЂРѕРІ', e);
+    renderCatalog();
+  }
+}
+
 function save() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-  localStorage.setItem(LOGS_KEY, JSON.stringify(logs.slice(0, 100)));
+  const storedLogs = localStorage.getItem('resale_logs_v1');
+  logs = storedLogs ? JSON.parse(storedLogs) : [];
+  localStorage.setItem('resale_logs_v1', JSON.stringify(logs.slice(0, 100)));
 }
 
 function addLog(type, item) {
+  const storedLogs = localStorage.getItem('resale_logs_v1');
+  logs = storedLogs ? JSON.parse(storedLogs) : [];
   logs.unshift({
     id: Date.now(),
+    type,
+    name: `${item.brand} ${item.name}`,
+    price: item.price,
+    time: new Date().toLocaleString('ru-RU'),
+    size: item.size,
+  });
+  localStorage.setItem('resale_logs_v1', JSON.stringify(logs.slice(0, 100)));
+  renderLogs();
+}
     type,
     name: `${item.brand} ${item.name}`,
     price: item.price,
@@ -438,7 +449,7 @@ function addLog(type, item) {
   renderLogs();
 }
 
-// ══════ PAGES ══════
+// в•ђв•ђв•ђв•ђв•ђв•ђ PAGES в•ђв•ђв•ђв•ђв•ђв•ђ
 function showPage(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
@@ -447,7 +458,7 @@ function showPage(page) {
   if (page === 'admin') renderAdmin();
 }
 
-// ══════ CATALOG ══════
+// в•ђв•ђв•ђв•ђв•ђв•ђ CATALOG в•ђв•ђв•ђв•ђв•ђв•ђ
 function filterCat(cat) {
   currentCat = cat;
   document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
@@ -467,31 +478,31 @@ function renderCatalog() {
   const grid = document.getElementById('catalog-grid');
   const filtered = items.filter(i => currentCat === 'all' || i.cat === currentCat);
   if (filtered.length === 0) {
-    grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">🔍</div><div class="empty-text">Товаров пока нет</div></div>';
+    grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">рџ”Ќ</div><div class="empty-text">РўРѕРІР°СЂРѕРІ РїРѕРєР° РЅРµС‚</div></div>';
     return;
   }
   grid.innerHTML = filtered.map(item => `
     <div class="card" onclick="openModal(${item.id})">
       <div class="card-img">
         ${(item.photos && item.photos[0]) || item.photo ? `<img src="${item.photos && item.photos[0] ? item.photos[0] : item.photo}" alt="${item.name}" onerror="this.style.display='none'">` : ''}
-        <span style="position:relative;z-index:1">${(item.photos && item.photos[0]) || item.photo ? '' : (item.emoji || '📦')}</span>
-        ${item.sold ? '<div class="card-sold-overlay">ПРОДАНО</div>' : ''}
+        <span style="position:relative;z-index:1">${(item.photos && item.photos[0]) || item.photo ? '' : (item.emoji || 'рџ“¦')}</span>
+        ${item.sold ? '<div class="card-sold-overlay">РџР РћР”РђРќРћ</div>' : ''}
       </div>
       <div class="card-body">
         <div class="card-brand">${item.brand}</div>
         <div class="card-name">${item.name}</div>
         <div class="card-tags">
-          <span class="tag">р. ${item.size}</span>
+          <span class="tag">СЂ. ${item.size}</span>
           <span class="tag ${condClass(item.cond)}">${item.cond}/10</span>
         </div>
-        <div class="card-price">${Number(item.price).toLocaleString('ru-RU')} ₽${item.priceUsd ? ` / ${item.priceUsd} $` : ''}</div>
+        <div class="card-price">${Number(item.price).toLocaleString('ru-RU')} в‚Ѕ${item.priceUsd ? ` / ${item.priceUsd} $` : ''}</div>
       </div>
-      <button class="card-btn" ${item.sold ? 'disabled' : ''} onclick="event.stopPropagation(); openModal(${item.id})">${item.sold ? 'ПРОДАНО' : 'ПОДРОБНЕЕ'}</button>
+      <button class="card-btn" ${item.sold ? 'disabled' : ''} onclick="event.stopPropagation(); openModal(${item.id})">${item.sold ? 'РџР РћР”РђРќРћ' : 'РџРћР”Р РћР‘РќР•Р•'}</button>
     </div>
   `).join('');
 }
 
-// ══════ MODAL ══════
+// в•ђв•ђв•ђв•ђв•ђв•ђ MODAL в•ђв•ђв•ђв•ђв•ђв•ђ
 function openModal(id) {
   currentItem = items.find(i => i.id === id);
   if (!currentItem) return;
@@ -503,7 +514,7 @@ function openModal(id) {
       <div class="slider-track" id="slider-track">
         ${photos.map(p => `<img class="slider-slide" src="${p}" onerror="this.style.opacity=0">`).join('')}
       </div>
-      ${photos.length > 1 ? `<button class="slider-btn prev" onclick="event.stopPropagation();slideMove(-1)">‹</button><button class="slider-btn next" onclick="event.stopPropagation();slideMove(1)">›</button>` : ''}
+      ${photos.length > 1 ? `<button class="slider-btn prev" onclick="event.stopPropagation();slideMove(-1)">вЂ№</button><button class="slider-btn next" onclick="event.stopPropagation();slideMove(1)">вЂє</button>` : ''}
       <div class="slider-dots">${photos.map((_,idx) => `<div class="slider-dot ${idx===0?'active':''}" id="dot-${idx}"></div>`).join('')}</div>
     </div>`;
     sliderPhotos = photos;
@@ -513,21 +524,21 @@ function openModal(id) {
       <img src="${photos[0]}" alt="${i.name}" onerror="this.style.display='none'">
     </div>`;
   } else {
-    modalImg.outerHTML = `<div class="modal-img" id="modal-img" style="font-size:80px;padding:20px 0">${i.emoji || '📦'}</div>`;
+    modalImg.outerHTML = `<div class="modal-img" id="modal-img" style="font-size:80px;padding:20px 0">${i.emoji || 'рџ“¦'}</div>`;
   }
   document.getElementById('modal-brand').textContent = i.brand;
   document.getElementById('modal-name').textContent = i.name;
-  document.getElementById('modal-price').textContent = Number(i.price).toLocaleString('ru-RU') + ' ₽' + (i.priceUsd ? ` / ${i.priceUsd} $` : '');
-  document.getElementById('modal-desc').textContent = i.desc || 'Описание не указано';
+  document.getElementById('modal-price').textContent = Number(i.price).toLocaleString('ru-RU') + ' в‚Ѕ' + (i.priceUsd ? ` / ${i.priceUsd} $` : '');
+  document.getElementById('modal-desc').textContent = i.desc || 'РћРїРёСЃР°РЅРёРµ РЅРµ СѓРєР°Р·Р°РЅРѕ';
   document.getElementById('modal-props').innerHTML = `
-    <div class="prop"><div class="prop-label">Размер</div><div class="prop-val">${i.size}</div></div>
-    <div class="prop"><div class="prop-label">Состояние</div><div class="prop-val ${condClass(i.cond)}" style="color: inherit">${i.cond}/10</div></div>
-    <div class="prop"><div class="prop-label">Категория</div><div class="prop-val">${catLabel(i.cat)}</div></div>
-    <div class="prop"><div class="prop-label">Статус</div><div class="prop-val" style="color: ${i.sold ? 'var(--danger)' : 'var(--good)'}">${i.sold ? 'Продано' : 'В наличии'}</div></div>
+    <div class="prop"><div class="prop-label">Р Р°Р·РјРµСЂ</div><div class="prop-val">${i.size}</div></div>
+    <div class="prop"><div class="prop-label">РЎРѕСЃС‚РѕСЏРЅРёРµ</div><div class="prop-val ${condClass(i.cond)}" style="color: inherit">${i.cond}/10</div></div>
+    <div class="prop"><div class="prop-label">РљР°С‚РµРіРѕСЂРёСЏ</div><div class="prop-val">${catLabel(i.cat)}</div></div>
+    <div class="prop"><div class="prop-label">РЎС‚Р°С‚СѓСЃ</div><div class="prop-val" style="color: ${i.sold ? 'var(--danger)' : 'var(--good)'}">${i.sold ? 'РџСЂРѕРґР°РЅРѕ' : 'Р’ РЅР°Р»РёС‡РёРё'}</div></div>
   `;
   const btn = document.getElementById('modal-btn');
   btn.disabled = i.sold;
-  btn.textContent = i.sold ? 'ТОВАР ПРОДАН' : '✉️ НАПИСАТЬ ПРОДАВЦУ';
+  btn.textContent = i.sold ? 'РўРћР’РђР  РџР РћР”РђРќ' : 'вњ‰пёЏ РќРђРџРРЎРђРўР¬ РџР РћР”РђР’Р¦РЈ';
   document.getElementById('modal-overlay').classList.add('open');
 }
 
@@ -557,17 +568,17 @@ function closeModal(e) {
 
 function contactSeller() {
   if (!currentItem || currentItem.sold) return;
-  const text = encodeURIComponent(`Привет! Интересует: ${currentItem.brand} ${currentItem.name}, р.${currentItem.size}, ${Number(currentItem.price).toLocaleString('ru-RU')}₽`);
+  const text = encodeURIComponent(`РџСЂРёРІРµС‚! РРЅС‚РµСЂРµСЃСѓРµС‚: ${currentItem.brand} ${currentItem.name}, СЂ.${currentItem.size}, ${Number(currentItem.price).toLocaleString('ru-RU')}в‚Ѕ`);
   window.open(`https://t.me/${SELLER_USERNAME}?text=${text}`, '_blank');
 }
 
 function catLabel(cat) {
-  return { shoes: 'Кроссовки', clothes: 'Одежда', accessories: 'Аксессуары', bags: 'Сумки', other: 'Другое' }[cat] || cat;
+  return { shoes: 'РљСЂРѕСЃСЃРѕРІРєРё', clothes: 'РћРґРµР¶РґР°', accessories: 'РђРєСЃРµСЃСЃСѓР°СЂС‹', bags: 'РЎСѓРјРєРё', other: 'Р”СЂСѓРіРѕРµ' }[cat] || cat;
 }
 
-// ══════ LOGS ══════
+// в•ђв•ђв•ђв•ђв•ђв•ђ LOGS в•ђв•ђв•ђв•ђв•ђв•ђ
 function clearLogs() {
-  Telegram.WebApp.showConfirm('Очистить все логи?', (ok) => {
+  Telegram.WebApp.showConfirm('РћС‡РёСЃС‚РёС‚СЊ РІСЃРµ Р»РѕРіРё?', (ok) => {
     if (!ok) return;
     logs = [];
     save();
@@ -578,49 +589,49 @@ function clearLogs() {
 function renderLogs() {
   const list = document.getElementById('logs-list');
   if (logs.length === 0) {
-    list.innerHTML = '<div class="empty-state"><div class="empty-icon">📋</div><div class="empty-text">Пока нет активности</div></div>';
+    list.innerHTML = '<div class="empty-state"><div class="empty-icon">рџ“‹</div><div class="empty-text">РџРѕРєР° РЅРµС‚ Р°РєС‚РёРІРЅРѕСЃС‚Рё</div></div>';
     return;
   }
   list.innerHTML = logs.map(l => `
     <div class="log-item">
       <div class="log-top">
         <span class="log-name">${l.name}</span>
-        <span class="log-tag ${l.type}">${{sold:'ПРОДАН', added:'ДОБАВЛЕН', removed:'УДАЛЁН', toggled:'ИЗМЕНЁН'}[l.type] || l.type}</span>
+        <span class="log-tag ${l.type}">${{sold:'РџР РћР”РђРќ', added:'Р”РћР‘РђР’Р›Р•Рќ', removed:'РЈР”РђР›РЃРќ', toggled:'РР—РњР•РќРЃРќ'}[l.type] || l.type}</span>
       </div>
-      <div class="log-time">${l.time} · Размер: ${l.size}</div>
-      <div class="log-price">${Number(l.price).toLocaleString('ru-RU')} ₽</div>
+      <div class="log-time">${l.time} В· Р Р°Р·РјРµСЂ: ${l.size}</div>
+      <div class="log-price">${Number(l.price).toLocaleString('ru-RU')} в‚Ѕ</div>
     </div>
   `).join('');
 }
 
-// ══════ ADMIN ══════
+// в•ђв•ђв•ђв•ђв•ђв•ђ ADMIN в•ђв•ђв•ђв•ђв•ђв•ђ
 function renderAdmin() {
   const container = document.getElementById('admin-items');
   if (items.length === 0) {
-    container.innerHTML = '<div class="empty-state"><div class="empty-icon">📦</div><div class="empty-text">Каталог пуст</div></div>';
+    container.innerHTML = '<div class="empty-state"><div class="empty-icon">рџ“¦</div><div class="empty-text">РљР°С‚Р°Р»РѕРі РїСѓСЃС‚</div></div>';
     return;
   }
   container.innerHTML = items.map(i => `
     <div class="admin-item">
       <div class="admin-emoji" style="position:relative;overflow:hidden;border-radius:8px;width:44px;height:44px;background:var(--surface);display:flex;align-items:center;justify-content:center;">
         ${(i.photos && i.photos[0]) || i.photo ? `<img src="${i.photos && i.photos[0] ? i.photos[0] : i.photo}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">` : ''}
-        <span style="position:relative;z-index:1;font-size:${(i.photos && i.photos[0]) || i.photo ? '0' : '28'}px">${i.emoji || '📦'}</span>
+        <span style="position:relative;z-index:1;font-size:${(i.photos && i.photos[0]) || i.photo ? '0' : '28'}px">${i.emoji || 'рџ“¦'}</span>
       </div>
       <div class="admin-info">
         <div class="admin-name">${i.brand} ${i.name}</div>
-        <div class="admin-meta">р.${i.size} · ${i.cond}/10 · ${i.sold ? '🔴 Продан' : '🟢 В наличии'}</div>
-        <div class="admin-price">${Number(i.price).toLocaleString('ru-RU')} ₽</div>
+        <div class="admin-meta">СЂ.${i.size} В· ${i.cond}/10 В· ${i.sold ? 'рџ”ґ РџСЂРѕРґР°РЅ' : 'рџџў Р’ РЅР°Р»РёС‡РёРё'}</div>
+        <div class="admin-price">${Number(i.price).toLocaleString('ru-RU')} в‚Ѕ</div>
       </div>
       <div class="admin-actions">
-        <button class="btn-edit" onclick="startEdit(${i.id})">✏️</button>
-        <button class="btn-toggle" onclick="toggleSold(${i.id})">${i.sold ? '↩️' : '✅'}</button>
-        <button class="btn-del" onclick="deleteItem(${i.id})">🗑</button>
+        <button class="btn-edit" onclick="startEdit(${i.id})">вњЏпёЏ</button>
+        <button class="btn-toggle" onclick="toggleSold(${i.id})">${i.sold ? 'в†©пёЏ' : 'вњ…'}</button>
+        <button class="btn-del" onclick="deleteItem(${i.id})">рџ—‘</button>
       </div>
     </div>
   `).join('');
 }
 
-function submitProduct() {
+async function submitProduct() {
   const brand = document.getElementById('f-brand').value.trim();
   const name = document.getElementById('f-name').value.trim();
   const cat = document.getElementById('f-cat').value;
@@ -631,34 +642,41 @@ function submitProduct() {
   const desc = document.getElementById('f-desc').value.trim();
   const photos = [1,2,3,4,5].map(n => document.getElementById(`f-photo-${n}`).value.trim()).filter(Boolean);
   const editId = document.getElementById('edit-id').value;
+  const emoji = document.getElementById('f-emoji').value.trim() || 'рџ“¦';
 
   if (!brand || !name || !size || !price || !cond) {
-    Telegram.WebApp.showAlert('Заполни все обязательные поля!');
+    Telegram.WebApp.showAlert('Р—Р°РїРѕР»РЅРё РІСЃРµ РѕР±СЏР·Р°С‚РµР»СЊРЅС‹Рµ РїРѕР»СЏ!');
     return;
   }
   if (cond < 1 || cond > 10) {
-    Telegram.WebApp.showAlert('Состояние должно быть от 1 до 10');
+    Telegram.WebApp.showAlert('РЎРѕСЃС‚РѕСЏРЅРёРµ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РѕС‚ 1 РґРѕ 10');
     return;
   }
 
-  const emoji = document.getElementById('f-emoji').value.trim() || '📦';
+  const payload = { brand, name, cat, size, price, priceUsd, cond, desc, emoji, photos };
 
-  if (editId) {
-    const idx = items.findIndex(i => i.id === parseInt(editId));
-    if (idx !== -1) {
-      items[idx] = { ...items[idx], brand, name, cat, size, price, priceUsd, cond, desc, emoji, photos };
-      addLog('toggled', items[idx]);
+  try {
+    if (editId) {
+      const item = items.find(i => i.id === parseInt(editId));
+      await fetch(`${API_URL}/api/items/${editId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Token': ADMIN_TOKEN },
+        body: JSON.stringify({ ...payload, sold: item ? item.sold : 0 })
+      });
+      addLog('toggled', { ...payload, size });
+    } else {
+      await fetch(`${API_URL}/api/items`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Token': ADMIN_TOKEN },
+        body: JSON.stringify(payload)
+      });
+      addLog('added', { ...payload, size });
     }
-  } else {
-    const newItem = { id: Date.now(), brand, name, cat, size, price, priceUsd, cond, desc, emoji, photos, sold: false };
-    items.unshift(newItem);
-    addLog('added', newItem);
+    await loadItems();
+    clearForm();
+  } catch(e) {
+    Telegram.WebApp.showAlert('РћС€РёР±РєР° СЃРѕС…СЂР°РЅРµРЅРёСЏ!');
   }
-
-  save();
-  clearForm();
-  renderCatalog();
-  renderAdmin();
 }
 
 function startEdit(id) {
@@ -670,15 +688,15 @@ function startEdit(id) {
   document.getElementById('f-cat').value = item.cat;
   document.getElementById('f-size').value = item.size;
   document.getElementById('f-price').value = item.price;
-  document.getElementById('f-price-usd').value = item.priceUsd || '';
+  document.getElementById('f-price-usd').value = item.price_usd || item.priceUsd || '';
   document.getElementById('f-cond').value = item.cond;
   document.getElementById('f-desc').value = item.desc || '';
   document.getElementById('f-emoji').value = item.emoji || '';
-  const photos = item.photos || (item.photo ? [item.photo] : []);
+  const photos = item.photos || [];
   [1,2,3,4,5].forEach(n => {
     document.getElementById(`f-photo-${n}`).value = photos[n-1] || '';
   });
-  document.getElementById('form-title').textContent = '✏️ Редактировать товар';
+  document.getElementById('form-title').textContent = 'вњЏпёЏ Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ С‚РѕРІР°СЂ';
   document.getElementById('cancel-edit-btn').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -690,30 +708,39 @@ function cancelEdit() {
 function clearForm() {
   ['f-brand','f-name','f-size','f-price','f-price-usd','f-cond','f-desc','f-emoji','f-photo-1','f-photo-2','f-photo-3','f-photo-4','f-photo-5'].forEach(id => document.getElementById(id).value = '');
   document.getElementById('edit-id').value = '';
-  document.getElementById('form-title').textContent = '+ Добавить товар';
+  document.getElementById('form-title').textContent = '+ Р”РѕР±Р°РІРёС‚СЊ С‚РѕРІР°СЂ';
   document.getElementById('cancel-edit-btn').style.display = 'none';
 }
 
-function toggleSold(id) {
+async function toggleSold(id) {
   const item = items.find(i => i.id === id);
   if (!item) return;
-  item.sold = !item.sold;
-  if (item.sold) addLog('sold', item);
-  else addLog('toggled', item);
-  save();
-  renderCatalog();
-  renderAdmin();
+  try {
+    await fetch(`${API_URL}/api/items/${id}/toggle`, {
+      method: 'PATCH',
+      headers: { 'X-Admin-Token': ADMIN_TOKEN }
+    });
+    addLog(item.sold ? 'toggled' : 'sold', item);
+    await loadItems();
+  } catch(e) {
+    Telegram.WebApp.showAlert('РћС€РёР±РєР°!');
+  }
 }
 
 function deleteItem(id) {
-  Telegram.WebApp.showConfirm('Удалить этот товар?', (ok) => {
+  Telegram.WebApp.showConfirm('РЈРґР°Р»РёС‚СЊ СЌС‚РѕС‚ С‚РѕРІР°СЂ?', async (ok) => {
     if (!ok) return;
-    const item = items.find(i => i.id === id);
-    if (item) addLog('removed', item);
-    items = items.filter(i => i.id !== id);
-    save();
-    renderCatalog();
-    renderAdmin();
+    try {
+      const item = items.find(i => i.id === id);
+      await fetch(`${API_URL}/api/items/${id}`, {
+        method: 'DELETE',
+        headers: { 'X-Admin-Token': ADMIN_TOKEN }
+      });
+      if (item) addLog('removed', item);
+      await loadItems();
+    } catch(e) {
+      Telegram.WebApp.showAlert('РћС€РёР±РєР° СѓРґР°Р»РµРЅРёСЏ!');
+    }
   });
 }
 
