@@ -235,7 +235,7 @@
 <!-- NAV -->
 <div class="nav">
   <button class="nav-tab active" id="tab-catalog" onclick="showPage('catalog')">🛍 КАТАЛОГ</button>
-  <button class="nav-tab" id="tab-logs" onclick="showPage('logs')">📋 ЛОГИ</button>
+  <button class="nav-tab" id="tab-logs" onclick="showPage('logs')" style="display:none">📋 ЛОГИ</button>
   <button class="nav-tab" id="tab-admin" onclick="showPage('admin')" style="display:none">⚙️ ADMIN</button>
 </div>
 
@@ -243,7 +243,7 @@
 <div class="page active" id="page-catalog">
   <div class="shop-header">
     <div class="shop-title">Orange Market</div>
-    <div class="shop-sub">Б/у вещи · Честные цены · Быстрая связь</div>
+    <div class="shop-sub">Быстрая доставка · Честные цены · Моментальная связь</div>
   </div>
   <div class="filter-bar" id="filter-bar">
     <button class="chip active" onclick="filterCat('all')">Все</button>
@@ -259,7 +259,10 @@
 <!-- ══════════════ LOGS PAGE ══════════════ -->
 <div class="page" id="page-logs">
   <div class="logs-header">
-    <div class="logs-title">Лог действий</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div class="logs-title">Лог действий</div>
+      <button onclick="clearLogs()" style="padding:6px 12px;background:transparent;border:1px solid var(--danger);border-radius:8px;color:var(--danger);font-family:'Unbounded',sans-serif;font-size:10px;font-weight:700;cursor:pointer;">ОЧИСТИТЬ</button>
+    </div>
   </div>
   <div id="logs-list"></div>
 </div>
@@ -375,7 +378,10 @@ function init() {
 
   const params = new URLSearchParams(window.location.search);
   isAdmin = params.get('admin') === '1';
-  if (isAdmin) document.getElementById('tab-admin').style.display = 'flex';
+  if (isAdmin) {
+    document.getElementById('tab-admin').style.display = 'flex';
+    document.getElementById('tab-logs').style.display = 'flex';
+  }
 
   Telegram.WebApp.ready();
   Telegram.WebApp.expand();
@@ -497,6 +503,15 @@ function catLabel(cat) {
 }
 
 // ══════ LOGS ══════
+function clearLogs() {
+  Telegram.WebApp.showConfirm('Очистить все логи?', (ok) => {
+    if (!ok) return;
+    logs = [];
+    save();
+    renderLogs();
+  });
+}
+
 function renderLogs() {
   const list = document.getElementById('logs-list');
   if (logs.length === 0) {
