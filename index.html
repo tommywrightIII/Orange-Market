@@ -144,8 +144,17 @@
   }
   @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } }
   .modal-handle { width: 40px; height: 4px; background: var(--border); border-radius: 2px; margin: 0 auto 16px; }
-  .modal-img { font-size: 80px; text-align: center; padding: 20px 0; background: var(--card); border-radius: 16px; margin-bottom: 16px; overflow: hidden; position: relative; min-height: 200px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+  .modal-img { font-size: 80px; text-align: center; background: var(--card); border-radius: 16px; margin-bottom: 16px; overflow: hidden; position: relative; min-height: 200px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
   .modal-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
+  .slider { position: relative; width: 100%; aspect-ratio: 1; background: var(--card); border-radius: 16px; overflow: hidden; margin-bottom: 16px; cursor: pointer; }
+  .slider-track { display: flex; width: 100%; height: 100%; transition: transform .3s ease; }
+  .slider-slide { min-width: 100%; height: 100%; object-fit: cover; }
+  .slider-dots { position: absolute; bottom: 8px; left: 0; right: 0; display: flex; justify-content: center; gap: 5px; z-index: 2; }
+  .slider-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.4); transition: background .2s; }
+  .slider-dot.active { background: white; }
+  .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; background: rgba(0,0,0,.5); border: none; color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .slider-btn.prev { left: 8px; }
+  .slider-btn.next { right: 8px; }
   .photo-fullscreen {
     display: none; position: fixed; inset: 0; z-index: 300;
     background: rgba(0,0,0,.95); align-items: center; justify-content: center;
@@ -336,9 +345,12 @@
       <input type="text" id="f-emoji" placeholder="👟" maxlength="2">
     </div>
     <div class="field">
-      <label>Ссылка на фото (необязательно)</label>
-      <input type="text" id="f-photo" placeholder="https://i.imgur.com/xxx.jpg">
-      <div style="font-size: 10px; color: var(--muted); margin-top: 4px;">Загрузи фото на imgur.com → скопируй ссылку</div>
+      <label>Фото (до 5 штук) — ссылки с imgur.com</label>
+      <input type="text" id="f-photo-1" placeholder="Фото 1 https://i.imgur.com/xxx.jpg" style="margin-bottom:6px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text);font-size:12px;font-family:'Manrope',sans-serif;outline:none;">
+      <input type="text" id="f-photo-2" placeholder="Фото 2 (необязательно)" style="margin-bottom:6px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text);font-size:12px;font-family:'Manrope',sans-serif;outline:none;">
+      <input type="text" id="f-photo-3" placeholder="Фото 3 (необязательно)" style="margin-bottom:6px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text);font-size:12px;font-family:'Manrope',sans-serif;outline:none;">
+      <input type="text" id="f-photo-4" placeholder="Фото 4 (необязательно)" style="margin-bottom:6px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text);font-size:12px;font-family:'Manrope',sans-serif;outline:none;">
+      <input type="text" id="f-photo-5" placeholder="Фото 5 (необязательно)" style="width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text);font-size:12px;font-family:'Manrope',sans-serif;outline:none;">
     </div>
     <button class="btn-add-submit" onclick="submitProduct()">Сохранить товар</button>
     <button id="cancel-edit-btn" style="display:none; width:100%; padding:11px; margin-top:8px; border-radius:12px; background:transparent; border:1px solid var(--border); color:var(--muted); font-family:'Unbounded',sans-serif; font-size:11px; cursor:pointer;" onclick="cancelEdit()">Отмена</button>
@@ -461,8 +473,8 @@ function renderCatalog() {
   grid.innerHTML = filtered.map(item => `
     <div class="card" onclick="openModal(${item.id})">
       <div class="card-img">
-        ${item.photo ? `<img src="${item.photo}" alt="${item.name}" onerror="this.style.display='none'">` : ''}
-        <span style="position:relative;z-index:1">${item.photo ? '' : (item.emoji || '📦')}</span>
+        ${item.photos && item.photos[0] ? `<img src="${item.photos[0]}" alt="${item.name}" onerror="this.style.display='none'">` : ''}
+        <span style="position:relative;z-index:1">${item.photos && item.photos[0] ? '' : (item.emoji || '📦')}</span>
         ${item.sold ? '<div class="card-sold-overlay">ПРОДАНО</div>' : ''}
       </div>
       <div class="card-body">
@@ -484,9 +496,25 @@ function openModal(id) {
   currentItem = items.find(i => i.id === id);
   if (!currentItem) return;
   const i = currentItem;
-  document.getElementById('modal-img').innerHTML = i.photo
-    ? `<img src="${i.photo}" alt="${i.name}" onclick="openFullscreen('${i.photo}')" onerror="this.style.display='none'">${i.emoji || ''}`
-    : (i.emoji || '📦');
+  const photos = i.photos && i.photos.length ? i.photos : (i.photo ? [i.photo] : []);
+  const modalImg = document.getElementById('modal-img');
+  if (photos.length > 1) {
+    modalImg.outerHTML = `<div class="slider" id="modal-img" onclick="openFullscreen(sliderPhotos[sliderIndex])">
+      <div class="slider-track" id="slider-track">
+        ${photos.map(p => `<img class="slider-slide" src="${p}" onerror="this.style.opacity=0">`).join('')}
+      </div>
+      ${photos.length > 1 ? `<button class="slider-btn prev" onclick="event.stopPropagation();slideMove(-1)">‹</button><button class="slider-btn next" onclick="event.stopPropagation();slideMove(1)">›</button>` : ''}
+      <div class="slider-dots">${photos.map((_,idx) => `<div class="slider-dot ${idx===0?'active':''}" id="dot-${idx}"></div>`).join('')}</div>
+    </div>`;
+    sliderPhotos = photos;
+    sliderIndex = 0;
+  } else if (photos.length === 1) {
+    modalImg.outerHTML = `<div class="modal-img" id="modal-img" onclick="openFullscreen('${photos[0]}')">
+      <img src="${photos[0]}" alt="${i.name}" onerror="this.style.display='none'">
+    </div>`;
+  } else {
+    modalImg.outerHTML = `<div class="modal-img" id="modal-img" style="font-size:80px;padding:20px 0">${i.emoji || '📦'}</div>`;
+  }
   document.getElementById('modal-brand').textContent = i.brand;
   document.getElementById('modal-name').textContent = i.name;
   document.getElementById('modal-price').textContent = Number(i.price).toLocaleString('ru-RU') + ' ₽' + (i.priceUsd ? ` / ${i.priceUsd} $` : '');
@@ -501,6 +529,15 @@ function openModal(id) {
   btn.disabled = i.sold;
   btn.textContent = i.sold ? 'ТОВАР ПРОДАН' : '✉️ НАПИСАТЬ ПРОДАВЦУ';
   document.getElementById('modal-overlay').classList.add('open');
+}
+
+let sliderPhotos = [];
+let sliderIndex = 0;
+
+function slideMove(dir) {
+  sliderIndex = (sliderIndex + dir + sliderPhotos.length) % sliderPhotos.length;
+  document.getElementById('slider-track').style.transform = `translateX(-${sliderIndex * 100}%)`;
+  document.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === sliderIndex));
 }
 
 function openFullscreen(url) {
@@ -592,7 +629,7 @@ function submitProduct() {
   const priceUsd = parseInt(document.getElementById('f-price-usd').value) || 0;
   const cond = parseInt(document.getElementById('f-cond').value);
   const desc = document.getElementById('f-desc').value.trim();
-  const photo = document.getElementById('f-photo').value.trim();
+  const photos = [1,2,3,4,5].map(n => document.getElementById(`f-photo-${n}`).value.trim()).filter(Boolean);
   const editId = document.getElementById('edit-id').value;
 
   if (!brand || !name || !size || !price || !cond) {
@@ -609,11 +646,11 @@ function submitProduct() {
   if (editId) {
     const idx = items.findIndex(i => i.id === parseInt(editId));
     if (idx !== -1) {
-      items[idx] = { ...items[idx], brand, name, cat, size, price, priceUsd, cond, desc, emoji, photo };
+      items[idx] = { ...items[idx], brand, name, cat, size, price, priceUsd, cond, desc, emoji, photos };
       addLog('toggled', items[idx]);
     }
   } else {
-    const newItem = { id: Date.now(), brand, name, cat, size, price, priceUsd, cond, desc, emoji, photo, sold: false };
+    const newItem = { id: Date.now(), brand, name, cat, size, price, priceUsd, cond, desc, emoji, photos, sold: false };
     items.unshift(newItem);
     addLog('added', newItem);
   }
@@ -637,7 +674,10 @@ function startEdit(id) {
   document.getElementById('f-cond').value = item.cond;
   document.getElementById('f-desc').value = item.desc || '';
   document.getElementById('f-emoji').value = item.emoji || '';
-  document.getElementById('f-photo').value = item.photo || '';
+  const photos = item.photos || (item.photo ? [item.photo] : []);
+  [1,2,3,4,5].forEach(n => {
+    document.getElementById(`f-photo-${n}`).value = photos[n-1] || '';
+  });
   document.getElementById('form-title').textContent = '✏️ Редактировать товар';
   document.getElementById('cancel-edit-btn').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -648,7 +688,7 @@ function cancelEdit() {
 }
 
 function clearForm() {
-  ['f-brand','f-name','f-size','f-price','f-price-usd','f-cond','f-desc','f-emoji','f-photo'].forEach(id => document.getElementById(id).value = '');
+  ['f-brand','f-name','f-size','f-price','f-price-usd','f-cond','f-desc','f-emoji','f-photo-1','f-photo-2','f-photo-3','f-photo-4','f-photo-5'].forEach(id => document.getElementById(id).value = '');
   document.getElementById('edit-id').value = '';
   document.getElementById('form-title').textContent = '+ Добавить товар';
   document.getElementById('cancel-edit-btn').style.display = 'none';
