@@ -251,6 +251,7 @@
 <!-- NAV -->
 <div class="nav">
   <button class="nav-tab active" id="tab-catalog" onclick="showPage('catalog')">🛍 КАТАЛОГ</button>
+  <button class="nav-tab" id="tab-faq" onclick="showPage('faq')">❓ FAQ</button>
   <button class="nav-tab" id="tab-logs" onclick="showPage('logs')" style="display:none">📋 ЛОГИ</button>
   <button class="nav-tab" id="tab-admin" onclick="showPage('admin')" style="display:none">⚙️ ADMIN</button>
 </div>
@@ -270,6 +271,40 @@
     <button class="chip" onclick="filterCat('other')">Другое</button>
   </div>
   <div class="grid" id="catalog-grid"></div>
+</div>
+
+<!-- ══════════════ FAQ PAGE ══════════════ -->
+<div class="page" id="page-faq">
+  <div class="shop-header">
+    <div class="shop-title">FAQ</div>
+    <div class="shop-sub">Часто задаваемые вопросы</div>
+  </div>
+  <div style="padding: 12px;" id="faq-content">
+
+    <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; margin-bottom: 10px;">
+      <div style="font-family: 'Unbounded', sans-serif; font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 8px;">💳 Оплата</div>
+      <div style="font-size: 13px; color: #aaa; line-height: 1.6;">Оплата доступна с помощью банковских карт, также через криптовалюту в любой сети.<br><br><span style="color: var(--text);">Примечание:</span> Если вы выбираете оплату криптовалютой, цена может быть чуть больше. Узнать точную цену вы можете написав админу.</div>
+    </div>
+
+    <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; margin-bottom: 10px;">
+      <div style="font-family: 'Unbounded', sans-serif; font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 8px;">🚚 Доставка</div>
+      <div style="font-size: 13px; color: #aaa; line-height: 1.6;">Срок доставки зависит от выбранного вами тарифа доставки.<br><br><span style="color: var(--text);">Примечание:</span> Узнать сроки и цену вы можете написав админу.</div>
+    </div>
+
+    <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; margin-bottom: 10px;">
+      <div style="font-family: 'Unbounded', sans-serif; font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 8px;">📞 Контакты</div>
+      <div style="font-size: 13px; color: #aaa; line-height: 1.6;">
+        <div style="margin-bottom: 10px;"><span style="color: var(--text); font-weight: 600;">@orangedime</span> — по вещам и вопросам сотрудничества</div>
+        <div><span style="color: var(--text); font-weight: 600;">@yaghoulb</span> — консультация по одежде, вопросы доставки</div>
+      </div>
+    </div>
+
+    <div style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; margin-bottom: 10px;">
+      <div style="font-family: 'Unbounded', sans-serif; font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 8px;">💬 Консультация</div>
+      <div style="font-size: 13px; color: #aaa; line-height: 1.6;">Если вам нужна дополнительная консультация или дополнительные фотографии — напишите админу, он с радостью поможет.</div>
+    </div>
+
+  </div>
 </div>
 
 <!-- ══════════════ LOGS PAGE ══════════════ -->
